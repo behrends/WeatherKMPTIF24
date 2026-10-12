@@ -36,8 +36,9 @@ fun WeatherApp() {
     // Der Back Stack ist eine Liste: Navigieren = Element hinzufügen oder entfernen
     val backStack = rememberNavBackStack(navConfig, CityList)
 
-    // Ohne Decorator ist das ViewModel an die Activity gebunden
-    val weatherViewModel: WeatherViewModel = viewModel()
+    // Ohne Decorator ist das ViewModel an die Activity gebunden.
+    // Ohne Reflection (iOS) muss angegeben werden, wie das ViewModel erzeugt wird
+    val weatherViewModel = viewModel { WeatherViewModel() }
 
     NavDisplay(
         backStack = backStack,

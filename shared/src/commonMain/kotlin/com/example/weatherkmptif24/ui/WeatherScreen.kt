@@ -41,7 +41,7 @@ import kotlin.math.roundToInt
 fun WeatherScreen(
     city: City,
     modifier: Modifier = Modifier,
-    viewModel: WeatherViewModel = viewModel(),
+    viewModel: WeatherViewModel = viewModel { WeatherViewModel() },
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     WeatherContent(
