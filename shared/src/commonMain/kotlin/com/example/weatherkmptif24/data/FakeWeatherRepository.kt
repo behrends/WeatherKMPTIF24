@@ -3,7 +3,7 @@ package com.example.weatherkmptif24.data
 import com.example.weatherkmptif24.model.City
 import com.example.weatherkmptif24.model.CurrentWeather
 import kotlinx.coroutines.delay
-import java.io.IOException
+import kotlinx.io.IOException
 
 class FakeWeatherRepository(
     private val shouldFail: Boolean = false,

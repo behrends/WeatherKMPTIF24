@@ -1,6 +1,5 @@
 package com.example.weatherkmptif24.ui
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -148,11 +147,23 @@ fun CurrentWeatherCard(
 }
 
 @Preview(showBackground = true)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark Mode")
 @Composable
 fun WeatherContentPreview() {
     val city = fakeCities.first()
     WeatherAndroidTIF24Theme {
+        WeatherContent(
+            city = city,
+            uiState = WeatherUiState.Success(city, fakeCurrentWeather.getValue(city.name)),
+        )
+    }
+}
+
+// uiMode gibt es nur unter Android, deshalb das Theme direkt auf dunkel stellen
+@Preview(showBackground = true, name = "Dark Mode")
+@Composable
+fun WeatherContentDarkPreview() {
+    val city = fakeCities.first()
+    WeatherAndroidTIF24Theme(darkTheme = true) {
         WeatherContent(
             city = city,
             uiState = WeatherUiState.Success(city, fakeCurrentWeather.getValue(city.name)),

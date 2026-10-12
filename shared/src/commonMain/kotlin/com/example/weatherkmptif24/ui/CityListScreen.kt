@@ -32,7 +32,7 @@ fun CityListScreen(
                 ListItem(
                     headlineContent = { Text(text = city.name) },
                     supportingContent = {
-                        Text(text = "%.2f° N, %.2f° O".format(city.latitude, city.longitude))
+                        Text(text = "${city.latitude}° N, ${city.longitude}° O")
                     },
                     modifier = Modifier.clickable { onCityClick(city) },
                 )
